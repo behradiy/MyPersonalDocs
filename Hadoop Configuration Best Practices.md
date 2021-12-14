@@ -27,28 +27,28 @@ Type: BigData
 
 Comic example how HDFS works:
 
-![Untitled](Hadoop%20Configuration%208327812e288a4499a4e3c3863b208fbb/Untitled.png)
+![Untitled](resources/Untitled.png)
 
 *Opinion:*
 
 - *Each time client wants to write data on HDFS, they need to clarify Bolck Sizes and Replication Factors*
 - *The replication happens when Name Node decides which Data Node(s) should be storing that data*
 
-![Untitled](Hadoop%20Configuration%208327812e288a4499a4e3c3863b208fbb/Untitled%201.png)
+![Untitled](resources/Untitled%201.png)
 
 *Opinion:*
 
 - *after all the blocks are Done and replicated successfully, we need to inform the Name Node to close the file. after that the Name Node stores all the metadata.*
 - *When reading from hadoop, client passes the file name to Name Node. Name Node returns all the metadata we need ( list of all  blocks and Data Nodes who stored them, for that file name). Now client starts downloading the data from the nearest Data Node.*
 
-![Untitled](Hadoop%20Configuration%208327812e288a4499a4e3c3863b208fbb/Untitled%202.png)
+![Untitled](resources/Untitled%202.png)
 
 *Opinion:*
 
 - *When Name Node fails, it's a single point of failure but the whole cluster won't go down. All Data Nodes based on their status, (Like how much resource that Data Node has, how many hours it has been up and ... ) decide which one should be the next Name Node.*
 - *Checksums are values that stores how many bits a file has, Data Nodes check them to see if they have all the data or not, if not they do not count that as a block and won't report that block to Name Node. so it's considered as corrupted block.*
 
-![Untitled](Hadoop%20Configuration%208327812e288a4499a4e3c3863b208fbb/Untitled%203.png)
+![Untitled](resources/Untitled%203.png)
 
 *Opinion:*
 
@@ -56,7 +56,7 @@ Comic example how HDFS works:
 - *The replication pipeline is a chain, if one of the Data Nodes dies, it should be skipped so that replication factor chain doesn't break.*
 - If one Data Node fails while doing the replication, after the replication ends, Name Node check his lists to see if all the blocks has replication required. If Name Node finds a block that lacks some of it's replication, Name Nods asks from the Data Node that doesn't have the replication, to copy that Block from others who have it.
 
-![Untitled](Hadoop%20Configuration%208327812e288a4499a4e3c3863b208fbb/Untitled%204.png)
+![Untitled](resources/Untitled%204.png)
 
 *Opinion:*
 
@@ -173,7 +173,7 @@ ZK - ZookeeperNN - NameNodeJN - JournalNodeRM - YARN Resource ManagerJH - MapRed
 
 # Apache HBase
 
-![Untitled](Hadoop%20Configuration%208327812e288a4499a4e3c3863b208fbb/Untitled%205.png)
+![Untitled](resources/Untitled%205.png)
 
 ### **Main Features**
 
@@ -193,7 +193,7 @@ Master server coordinates the cluster, performing admin operations, regions allo
 
 ####Basic Pre-requisites
 
-![Untitled](Hadoop%20Configuration%208327812e288a4499a4e3c3863b208fbb/Untitled%206.png)
+![Untitled](resources/Untitled%206.png)
 
 ### Hardware Specifications
 
@@ -228,7 +228,7 @@ DISKS
 - One core per disk
 - In general, SATA drives are recommended over SAS
 
-![Untitled](Hadoop%20Configuration%208327812e288a4499a4e3c3863b208fbb/Untitled%207.png)
+![Untitled](resources/Untitled%207.png)
 
 ## Software Specifications
 
@@ -255,7 +255,7 @@ Currently, HBase is bound to work only with the specific version of Hadoop it wa
 
 Hadoop 2.x is recommended.
 
-![Untitled](Hadoop%20Configuration%208327812e288a4499a4e3c3863b208fbb/Untitled%208.png)
+![Untitled](resources/Untitled%208.png)
 
 ### SSH
 
@@ -299,7 +299,7 @@ To have HBase manage a ZooKeeper quorum on nodes rs{1,2,3,4,5}.example.com, boun
 
 You should also set hbase.zookeeper.property.dataDir to other than the default as the default has ZooKeeper persist data under /tmp which is often cleared on system restart. In the example below we have ZooKeeper persist to /user/local/zookeeper.
 
-![Untitled](Hadoop%20Configuration%208327812e288a4499a4e3c3863b208fbb/Untitled%209.png)
+![Untitled](resources/Untitled%209.png)
 
 The default timeout is three minutes (specified in milliseconds). This means that if a server crashes, it will be three minutes before the Master notices the crash and starts recovery.
 
