@@ -3,10 +3,13 @@
 > *“We know more than we can tell.”
 Michael Polanyi*
 > 
+Most of my knowledge is based on asking and learning from professionals, so i see knowledge sharing a duty now.
+long story short:
+In this repo i'm sharing what i've learned and found usefull throughout my journey of learning.
 
-All the usefull material will be listed here. Almost everything has this structure :
-
+Almost everything has this structure :
 - getting your hands on installing that tech
-- tricks i found intresting
+- tricks about the tech that i found intresting
 
-feel free to change and commit anything, anywhere.
+feel free to suggest changes in anything, anywhere.
+good luck 
