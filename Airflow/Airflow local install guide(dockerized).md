@@ -34,7 +34,7 @@ AIRFLOW_UID=501
 AIRFLOW_GID=0
 ```
 
-#### _3.Initialise the Airflow Database:_
+### _3.Initialise the Airflow Database:_
 
 > Now we initialise the Airflow Database by first starting this container:
 
@@ -48,7 +48,7 @@ docker-compose up airflow-init
 | ------ | ------ |
 | airflow | airflow |
 
-#### _4.Getting the service UP:_
+### _4.Getting the service UP:_
 - Now we can easily use the docker-compose file:
 ```
 docker-compose up -d 
